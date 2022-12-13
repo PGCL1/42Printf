@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:35:24 by glacroix          #+#    #+#             */
-/*   Updated: 2022/12/12 20:27:45 by glacroix         ###   ########.fr       */
+/*   Updated: 2022/12/13 18:17:51 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@
  */
 int ft_putchar(int c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
 
 /**
@@ -37,7 +36,7 @@ int ft_strlen(char *str)
 	int x;
 
 	x = 0;
-	while (str)
+	while (str[x])
 		x++;
 	return (x);
 }
@@ -49,16 +48,14 @@ int ft_strlen(char *str)
  * 
  * @return The number of characters printed.
  */
-char ft_putstr(const char *str)
+int ft_putstr(char *str)
 {
-	int x;
+	unsigned int x;
 
 	x = 0;
 	if (!str)
 		return (write(1, "(null)", 6));
-	while (str[x])
-		x++;
-	return (write(1, str, x));
+	return (write(1, str, ft_strlen(str)));
 }
 
 /**
@@ -70,11 +67,11 @@ char ft_putstr(const char *str)
  */
 int ft_putnbr(int nbr)
 {
-	int n;
+	unsigned int n;
 
 	n = 0;
 	if (nbr == -2147483648)
-		write(1, &nbr, 11);
+		return (write(1, "-2147483648", 11));
 	if (nbr < 0)
 	{
 		n += ft_putchar('-');
@@ -82,7 +79,7 @@ int ft_putnbr(int nbr)
 	}
 	if (nbr > 9)
 	{
-		n += ft_putnbr(nbr/ 10);
+		n += ft_putnbr(nbr / 10);
 		n += ft_putchar(nbr % 10 + '0');
 	}
 	else
@@ -109,27 +106,45 @@ int ft_putnbr_uns(unsigned int nbr)
 	return (n += ft_putchar(nbr % 10 + '0'));
 }
 
-int	ft_puthex(unsigned long n, char c)
+int ft_putnbr_hex(unsigned int n, char *base)
 {
-	int		a;
-	char	*s;
+    int nbr_final[16];
+    int i;
+    int result;
+    i = 0;
+    result = 0;
+    if (n == 0)
+        result += ft_putchar('0');
+    while (n && n > 0)
+    {
+        nbr_final[i] = n % 16;
+        n = n / 16;
+        i++;
+    }
+    while (--i >= 0)
+        result += ft_putchar(base[nbr_final[i]]);
+    return (result);
+}
 
-	a = 0;
-	if (c == 'X')
-		s = "0123456789ABCDEF";
-	else
-		s = "0123456789abcdef";
-	if (c == 'p')
-	{
-		a += ft_putstr("0x");
-		c = 0;
-	}
-	if (n < 16)
-		a += ft_putchar(s[n]);
-	else
-	{
-		a += ft_puthex(n / 16, c);
-		a += ft_puthex(n % 16, c);
-	}
-	return (a);
+int ft_pointer(size_t n, char *base)
+{
+	size_t nbr_final[16];
+	int result;
+	int i;
+
+	i = 0;
+	result = 0;
+    if (n == 0)
+		result += write(1, "0x0", 3);
+	if (n != 0)
+		result += write(1, "0x", 2);
+    while (n)
+    {
+        nbr_final[i] = n % 16;
+        n = n / 16;
+        i++;
+    }
+    while (--i >= 0)
+        result += ft_putchar(base[nbr_final[i]]);
+    return (result);
 }
