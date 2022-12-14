@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:35:24 by glacroix          #+#    #+#             */
-/*   Updated: 2022/12/14 16:08:57 by glacroix         ###   ########.fr       */
+/*   Updated: 2022/12/14 16:19:46 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * 
  * @return The number of characters printed.
  */
-int ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
 	if (!str)
 		return (write(1, "(null)", 6));

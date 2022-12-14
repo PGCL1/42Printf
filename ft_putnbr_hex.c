@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:35:24 by glacroix          #+#    #+#             */
-/*   Updated: 2022/12/14 16:08:34 by glacroix         ###   ########.fr       */
+/*   Updated: 2022/12/14 16:21:41 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@
  * 
  * @return The number of characters printed.
  */
-int ft_putnbr_hex(unsigned int n, char *base)
+int	ft_putnbr_hex(unsigned int n, char *base)
 {
-    int nbr_final[16];
-    int i;
-    int result;
+    int	nbr_final[16];
+    int	i;
+    int	result;
+	
     i = 0;
     result = 0;
     if (n == 0)

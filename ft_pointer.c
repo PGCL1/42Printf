@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:35:24 by glacroix          #+#    #+#             */
-/*   Updated: 2022/12/14 16:07:10 by glacroix         ###   ########.fr       */
+/*   Updated: 2022/12/14 16:18:59 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
  * 
  * @return The number of characters printed.
  */
-int ft_pointer(size_t n, char *base)
+int	ft_pointer(size_t n, char *base)
 {
-	size_t nbr_final[16];
-	int result;
-	int i;
+	size_t	nbr_final[16];
+	int		result;
+	int		i;
 
 	i = 0;
 	result = 0;

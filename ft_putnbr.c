@@ -6,7 +6,7 @@
 /*   By: glacroix <glacroix@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:35:24 by glacroix          #+#    #+#             */
-/*   Updated: 2022/12/14 16:07:26 by glacroix         ###   ########.fr       */
+/*   Updated: 2022/12/14 16:16:48 by glacroix         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
  * 
  * @return The number of characters printed.
  */
-int ft_putnbr(int nbr)
+int	ft_putnbr(int nbr)
 {
-	unsigned int n;
+	unsigned int	n;
 
 	n = 0;
 	if (nbr == -2147483648)
